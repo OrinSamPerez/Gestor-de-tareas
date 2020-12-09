@@ -1,10 +1,10 @@
-import Login  from './Component/Registro.jsx';
+import AgregarTarea from './Component/AgregarTarea.jsx';
+
 function App() {
   return (
     <>
-    <Login/>
-    <h1>Hola mundo</h1>
-</>
+      <AgregarTarea />
+    </>
   );
 }
 
