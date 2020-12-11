@@ -1,72 +1,21 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import {makeStyles} from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Triste from '../img/triste.svg';
-import ColorizeIcon from '@material-ui/icons/Colorize';
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
 import MicNoneIcon from '@material-ui/icons/MicNone';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import TimerIcon from '@material-ui/icons/Timer';
+import styleMenu from '../Style/style.js';
 
 
 
-
-const styleMenu = makeStyles ({
-    botonAgregar:{
-        margin:'auto',
-        display:'block',
-        justifyContent:'center',
-        marginTop:'30px'
-        
-    },
-    modal:{
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center',
-        padding:'10%'
-    },
-    mainModal:{
-        background:'#fff',
-        padding:'30px',
-        paddingLeft:'50px',
-        paddingRight:'50px',
-        borderRadius:'3%',
-        margin: 'spacing(1)',
-        fontSize:'25px'   
-    }, 
-    espacio:{
-        marginBottom:'15px'
-    },
-    espacioLeft:{
-        marginRight:'10px'
-    },
-    personalizado:{
-        textAlign: 'center',
-        marginBottom:'15px'
-    },
-    tamaño:{
-        textAlign:'center',
-        width:'200px',
-        marginBottom:'15px'
-    },
-    faceSad:{
-        marginTop:'15px',
-        wight:'350px',
-        height:'350px',
-        margin:'auto',
-        display:'block'
-    },
-    center:{
-        textAlign:'center',
-        marginTop:'15px'
-    }, 
-    icon:{
-        marginRight:'15px'
-    }
-
-})
 const AgregarTarea = ()=>{
+
+  
     const [open, setOpen] = React.useState(false);
   const ModalOpen = () => {
     setOpen(true);
@@ -77,6 +26,7 @@ const AgregarTarea = ()=>{
   };
 
     const style = styleMenu();
+
     return (
         <>
         <Button  variant="contained" color="primary" className={style.botonAgregar} onClick={ModalOpen} size="large" >
@@ -118,7 +68,6 @@ const AgregarTarea = ()=>{
                    /*    onChange={} */
                        rows={4}
                        rowsMax={6}
-                      
                        className={style.tamaño}
                        size="large"
                        multiline
@@ -129,9 +78,12 @@ const AgregarTarea = ()=>{
                 </form>
             </div>
             <div className={style.personalizado}>
-            <a className={style.icon} href="#"><ColorizeIcon/></a>
-            <a className={style.icon} href="#"><MicNoneIcon/></a>
+                <a className={style.icon} title="Agregar Temporizador" ><TimerIcon fontSize="large" className={style.black}/></a>
+                <a className={style.icon} title="Agregar Iconos" ><NoteAddIcon fontSize="large" className={style.blue}/></a>
+                <a className={style.icon} title="Agregar Tarea Existente" ><AddCircleIcon fontSize="large" /></a> 
+                <a className={style.icon} title="Agregar Por Voz" ><MicNoneIcon  id="Voz" fontSize="large"   color="action" /></a> 
             </div>
+          
             <div className={style.espacio}>
                 <Button variant="contained" color="primary" size="medium" className={style.espacioLeft}>
                 Agregar
@@ -143,16 +95,7 @@ const AgregarTarea = ()=>{
         </div>
         </>
       </Modal>
-        <div>
-            <div >
-                <img className={style.faceSad} src={Triste} alt="Cara Triste"/>
-            </div>
-            <div className={style.center}>
-                <Typography variant="subtitle1" color="initial">
-                    Todavia no se ha agregado tarea
-                </Typography>
-            </div>
-        </div>
+        
     </>
     )
 }
